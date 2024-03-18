@@ -1,12 +1,15 @@
 ﻿using HeathReports.Models.HealthModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.InteropServices;
 
 namespace HeathReports.Models.HealthModel
 {
-    public class Patient
+    [Table("Patients")]
+    public class Patients
     {
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("PatientId")]
         public int PatientId { get; set; }
 
         public string FirstName { get; set; }
@@ -19,6 +22,8 @@ namespace HeathReports.Models.HealthModel
         public string PhoneNumber { get; set; }
 
         public string Email { get; set; }
+
+        //public List<MedicalHistory> History { get; set; }
 
     }
 }

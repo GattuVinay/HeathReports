@@ -1,13 +1,16 @@
 ﻿using HeathReports.Models.HealthModel;
+using HeathReports.Models.ViewModels;
 
 namespace HeathReports.Interface
 {
     public interface IHealth
     {
-        List<Patient> PatientDetails();
+        List<PatientMedicalHistoryViewModel> PatientDetails();
 
-        List<TreatementRecords> TreatementRecords();
+        List<PatientMedicalHistoryViewModel>TreatementRecords();
 
-        List<MedicalHistory> MedicalHistoryDetails();
+        List<PatientMedicalHistoryViewModel> MedicalHistoryDetails();
+        List<PatientMedicalHistoryViewModel> CountOfPatientsWithMultipleMedicalConditions();
+        List<PatientMedicalHistoryViewModel> TreatmentOutcomeByMedicalCondition();
     }
 }

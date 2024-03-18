@@ -1,0 +1,47 @@
+﻿@model IEnumerable<HeathReports.Models.ViewModels.PatientMedicalHistoryViewModel>
+
+@{
+    ViewData["Title"] = "TreatmemtRecords";
+}
+
+<h1>TreatmemtRecords</h1>
+
+<table calss="Table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TreatmentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TreatmentType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* <script>
+    $(document).ready(function () {
+        $('#table').DataTable();
+    })
+</script> *@

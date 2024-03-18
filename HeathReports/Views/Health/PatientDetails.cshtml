@@ -1,37 +1,40 @@
-﻿@model IEnumerable<HeathReports.Models.HealthModel.Patient>
+﻿@model IEnumerable<HeathReports.Models.ViewModels.PatientMedicalHistoryViewModel>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+@{
+    ViewData["Title"] = "PatientDetails";
+}
+
+<h1>PatientDetails</h1>
+
+<table calss="Table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PatientId)
+                @Html.DisplayNameFor(model => model.Gender)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Gender)
+                @Html.DisplayNameFor(model => model.MedicalCondition)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.ToList())
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PatientId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gender)
-                </td>
-                
-               @*  <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.EmpId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.EmpId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.EmpId })
-                </td> *@
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicalCondition)
+            </td>
+            
+        </tr>
+}
     </tbody>
 </table>
+
+@* <script>
+    $(document).ready(function () {
+        $('#table').DataTable();
+    })
+</script> *@
